@@ -1,0 +1,5 @@
+[Adblock Plus 2.0]
+! Title: My Custom Rules for Vivaldi iOS
+! Version: 1.0
+! Homepage: https://github.com/Vithur/mihomo
+artfeed.org##ul.menu.bg-base-200.rounded-box
