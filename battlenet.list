@@ -1,0 +1,19 @@
+# Battle.net 下载专用直连规则集（只让游戏下载走直连，客户端登录仍走代理）
+# 基于你两张截图的所有 IP + Akamai 下载域名
+# 更新日期: 2026-02-22
+
+# IP 直连（覆盖 137.221.64.x 和 92.123.180.x 全部流量）
+IP-CIDR,137.221.64.0/19,no-resolve
+IP-CIDR,137.221.0.0/16,no-resolve
+IP-CIDR,92.123.180.0/24,no-resolve
+
+# 域名直连（未来-proof，防止新下载域名走代理）
+DOMAIN-KEYWORD,blzddist
+DOMAIN-KEYWORD,blzdist
+DOMAIN-KEYWORD,bnetproduct
+DOMAIN-KEYWORD,bnetdownload
+DOMAIN-SUFFIX,cdn.blizzard.com
+DOMAIN-SUFFIX,patch.battle.net
+DOMAIN-SUFFIX,blzddist1-a.akamaihd.net
+DOMAIN-SUFFIX,blzddistkr1-a.akamaihd.net
+DOMAIN-SUFFIX,bnetproduct-a.akamaihd.net
