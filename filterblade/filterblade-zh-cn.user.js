@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Filterblade 简体中文汉化
 // @namespace    https://github.com/Vithur/mihomo
-// @version      4.0
-// @description  Filterblade 简体中文汉化（原繁体版作者 Sab，简体化 + 术语对齐 poe2db.tw/cn）
+// @version      4.1
+// @description  Filterblade 简体中文汉化（原繁体版作者 Sab）。仅 PoE2；术语以 poe2db.tw/cn 官方简中译名为准。
 // @author       Sab (原作) / Vithur (简体化)
 // @match        https://www.filterblade.xyz/*
 // @match        https://poe2filter.com/*
@@ -19,7 +19,6 @@
 
   const CONFIG = {
     URLS: {
-      POE1: 'https://raw.githubusercontent.com/Vithur/mihomo/main/filterblade/poe1.zh-cn.json',
       POE2: 'https://raw.githubusercontent.com/Vithur/mihomo/main/filterblade/poe2.zh-cn.json'
     },
     SELECTORS: {
@@ -65,7 +64,7 @@
 
   class Utils {
     static normalizeText(text) {
-      return text ? text.trim() : '';
+      return text ? text.replace(/\s+/g, ' ').trim() : '';
     }
     static debounce(func, wait) {
       let timeout;
@@ -97,12 +96,8 @@
     }
 
     async init() {
-      const preferredGame = this._getPreferredGame();
-      console.log(`[DataManager] 当前游戏: ${preferredGame}`);
-
-      const urls = preferredGame === 'Poe2'
-        ? [CONFIG.URLS.POE2, CONFIG.URLS.POE1]
-        : [CONFIG.URLS.POE1, CONFIG.URLS.POE2];
+      const urls = [CONFIG.URLS.POE2];
+      console.log('[DataManager] 载入 PoE2 词典');
 
       const results = await Promise.all(urls.map(url => this._fetchJson(url)));
 
@@ -122,13 +117,6 @@
 
       console.log(`[DataManager] 已载入 ${this.data.size} 条词条。`);
       return Array.from(this.data.entries());
-    }
-
-    _getPreferredGame() {
-      const params = new URLSearchParams(window.location.search);
-      const host = window.location.hostname;
-      if (host.includes('poe2filter.com')) return 'Poe2';
-      return params.get('game') === 'Poe2' ? 'Poe2' : 'Poe1';
     }
 
     _fetchJson(url) {
