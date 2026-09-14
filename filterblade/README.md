@@ -60,18 +60,20 @@ https://raw.githubusercontent.com/Vithur/mihomo/main/filterblade/filterblade-zh-
 
 已核实两岸同译、**不可**转换的：`Spirit`=精魂、`Prismatic Ring`=三相戒指。
 
-## 覆盖统计（PoE 2，共 14,328 条）
+## 覆盖统计（PoE 2，共 14,145 条）
 
 | 来源 | 条数 | 占比 |
 |---|---|---|
-| poe2db 官方简中译名（逐条探测 slug） | 5,260 | 36.7% |
+| poe2db 官方简中译名（逐条探测 slug） | 5,260 | 37.2% |
 | 人工补充界面文案（`ui_overlay.json`） | 176 | 1.2% |
 | poe2db 列表页 CN 表匹配 / 繁体值反查 | 7 | 0.0% |
-| 字符转换 + 大陆用语替换表（兜底） | 8,958 | 62.5% |
+| 字符转换 + 大陆用语替换表（兜底） | 8,958 | 63.3% |
+
+> 原词典含 183 条脏值（177 条 `[DNT]`/`[UNUSED]`/`WIP` 数据矿工条目被译成字面量 `None`，另有 6 条被译成空格/空串），已在合并阶段剔除。这些键删掉后脚本不做替换，页面保留英文原文；保留则站点会渲染出 "None"。
 
 **Filterblade 界面文案覆盖率：390 / 406 = 96.1%**（实机无头浏览器遍历 Start / Customize / Overview / Simulate / Themes / Advanced / Export / Profile / Settings 全站抓取比对）。
 
-剩余 16 条为品牌与人名，**本就不应翻译**：`FilterBlade`、`Discord`、`Patreon`、`Twitter`、`YouTube`、`Twitch`、`GitHub`、`NeverSink`、`Zoey`、`Haggis`、`Eleni (MochiMM)`、`AlwaysFloat Technologies`、`FilterBladeContact@gmail.com`、`PoE 1`、`PoE 2`。
+剩余 16 条为品牌、人名与数字，**本就不应翻译**：`FilterBlade`、`Discord`、`Patreon`、`Twitter`、`YouTube`、`Twitch`、`GitHub`、`NeverSink`、`Zoey`、`Haggis`、`Eleni (MochiMM)`、`AlwaysFloat Technologies`、`FilterBladeContact@gmail.com`、`NeverSink, Zoey & Haggis:`、`PoE 1`、`PoE 2`。
 
 ## 数据说明
 
